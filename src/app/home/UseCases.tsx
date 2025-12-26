@@ -10,6 +10,7 @@ const images: { src: string; mobileSrc: string; alt: string }[] = [
   { src: "/use-cases/render.jpg", mobileSrc: "/use-cases/Render_mob.png", alt: "Use case 3" },
   { src: "/use-cases/hecttor.jpg", mobileSrc: "/use-cases/hecttor_mob.jpg", alt: "Use case 4" },
   { src: "/use-cases/leaping.png", mobileSrc: "/use-cases/leaping_mob.png", alt: "Use case 5" },
+  { src: "/use-cases/satisfai.png", mobileSrc: "/use-cases/satisfai_mob.png", alt: "Use case 6" },
 ];
 
 export function UseCases() {
