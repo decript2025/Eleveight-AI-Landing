@@ -3,17 +3,17 @@
 import Image from "next/image";
 
 const partners = [
-  { src: "/partners/aica_logo.png", alt: "CSI Logo" },
-  { src: "/partners/csi_logo.png", alt: "EP Logo" },
+  { src: "/partners/csi_logo.png", alt: "CSI Logo" },
+  { src: "/partners/ep_logo.png", alt: "EP Logo" },
   { src: "/partners/decript_logo.png", alt: "Decript Logo" },
-  { src: "/partners/digidata_logo.png", alt: "Xart Logo" },
-  { src: "/partners/ep_logo.png", alt: "DigiData Logo" },
-  { src: "/partners/eqwefy_logo.png", alt: "eqwefy Logo" },
-  { src: "/partners/g-next_logo.png", alt: "g-Next Logo" },
-  { src: "/partners/maia_logo.png", alt: "maia Logo" },
-  { src: "/partners/uwc_dilijan_logo.png", alt: "UWC Logo" },
   { src: "/partners/xart_logo.png", alt: "Xart Logo" },
+  { src: "/partners/digidata_logo.png", alt: "DigiData Logo" },
+  { src: "/partners/uwc_dilijan_logo.png", alt: "UWC Dilijan Logo" },
   { src: "/partners/yn_logo.png", alt: "Yn Logo" },
+  { src: "/partners/aica_logo.png", alt: "Aica Logo" },
+  { src: "/partners/eqwefy_logo.png", alt: "Eqwefy Logo" },
+  { src: "/partners/brand-logo.svg", alt: "Brand Logo" },
+  { src: "/partners/maia-header.svg", alt: "Main Header Logo" },
 ];
 
 export function Partners() {
@@ -21,7 +21,9 @@ export function Partners() {
   const duplicatedPartners = [...partners, ...partners];
 
   return (
-    <div className="mt-[8px] mb-[10px]">      
+    <div className="mx-10 mb-[25px]">
+      <h2 className="text-[40px] my-5 text-left max-[1180px]:text-center font-bold">Our Partners</h2>
+      
       <div className="overflow-hidden whitespace-nowrap mx-auto text-center">
         <div className="inline-flex items-center animate-[slide_15s_linear_infinite]">
           {duplicatedPartners.map((img, index) => (
@@ -32,9 +34,9 @@ export function Partners() {
               <Image
                 src={img.src}
                 alt={img.alt}
-                width={95}
-                height={76}
-                className="h-[76px] object-contain"
+                width={150}
+                height={150}
+                className="h-[150px] object-contain"
               />
             </div>
           ))}

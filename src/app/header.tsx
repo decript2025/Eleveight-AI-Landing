@@ -3,10 +3,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { ReservationDialog } from 'lib/ReservationDialog';
 import { useState, useEffect } from 'react';
-import { HoverCard, HoverCardContent, HoverCardTrigger } from 'ui/components/ui/hover-card';
-import { ChevronDown } from 'lib/chevronDown';
-import { GetStarted } from './home/get-started';
+
 export default function Header() {
   const pathname = usePathname() || '';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -22,175 +21,55 @@ export default function Header() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const [isPlatformOpen, setIsPlatformOpen] = useState(false);
-  const [isProductsOpen, setIsProductsOpen] = useState(false);
-  const [isLangOpen, setIsLangOpen] = useState(false);
-
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const [selectedLang, setSelectedLang] = useState<'eng' | 'arm'>('eng');
-  const languages = {
-    eng: { code: 'eng', display: 'ENG' },
-    arm: { code: 'arm', display: 'Հայ' }
-  };
-  const otherLang = selectedLang === 'eng' ? languages.arm : languages.eng;
-
   return (
     <>
-      <header className={`fixed top-0 z-10 bg-[#050505d9] text-foreground py-[14px] [width:inherit] left-[96px] right-[96px]`}>
-        <nav className="flex justify-between items-center gap-[16px]">
+      <header className={`fixed p-5 top-0 w-full z-[1000] bg-background text-foreground px-8 py-5`}>
+        <nav className="flex justify-between items-center gap-10">
           <Link href="/">
             <Image
-              className='min-w-[153px]'
+              className="w-[160px] h-auto md:w-[184px]"
               src="/logo.svg"
               alt="Eleveight AI"
-              width={0}
-              height={0}
+              width={184}
+              height={44}
+              unoptimized
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+              }}
             />
           </Link>
           
           <div className="hidden md:flex w-full justify-between items-center gap-10">
             <span className="flex gap-8">
-              <HoverCard openDelay={200} closeDelay={300} open={isPlatformOpen}
-                onOpenChange={setIsPlatformOpen}>
-                <HoverCardTrigger asChild>
-                  <Link
-                    href="/platform"
-                    className="text-sm font-semibold hover:text-primary"
-                  >
-                    Platform
-                    <ChevronDown isOpen={isPlatformOpen} />
-                  </Link>
-                </HoverCardTrigger>
-                <HoverCardContent className="w-80 bg-[#050505d9] rounded-br-[16px] rounded-bl-[16px]" align="start">
-                  <div className="space-y-3">
-                    <div>
-                      <h3 className="font-semibold text-base mb-3">Platform</h3>
-                      <div className="space-y-2">
-                        <Link 
-                          href="/platform/infrastructure" 
-                          className="block p-2 hover:bg-accent rounded-md transition-colors text-sm"
-                        >
-                          <div className="font-medium">Infrastructure</div>
-                          <div className="text-xs text-muted-foreground">GPU computing resources</div>
-                        </Link>
-                        <Link 
-                          href="/platform/ai-tools" 
-                          className="block p-2 hover:bg-accent rounded-md transition-colors text-sm"
-                        >
-                          <div className="font-medium">AI Tools</div>
-                          <div className="text-xs text-muted-foreground">Development tools and frameworks</div>
-                        </Link>
-                        {/* Add more platform links as needed */}
-                      </div>
-                    </div>
-                  </div>
-                </HoverCardContent>
-              </HoverCard>
-
-              <HoverCard openDelay={200} closeDelay={300} open={isProductsOpen}
-                onOpenChange={setIsProductsOpen}>
-                <HoverCardTrigger asChild>
-                  <Link
-                    href="/products"
-                    className="text-sm font-semibold hover:text-primary"
-                  >
-                    Products
-                    <ChevronDown isOpen={isProductsOpen} />
-                  </Link>
-                </HoverCardTrigger>
-                <HoverCardContent className="w-80 bg-[#050505d9] rounded-br-[16px] rounded-bl-[16px]" align="start">
-                  <div className="space-y-3">
-                    <div>
-                      <h3 className="font-semibold text-base mb-3">Platform</h3>
-                      <div className="space-y-2">
-                        <Link 
-                          href="/platform/infrastructure" 
-                          className="block p-2 hover:bg-accent rounded-md transition-colors text-sm"
-                        >
-                          <div className="font-medium">Infrastructure</div>
-                          <div className="text-xs text-muted-foreground">GPU computing resources</div>
-                        </Link>
-                        <Link 
-                          href="/platform/ai-tools" 
-                          className="block p-2 hover:bg-accent rounded-md transition-colors text-sm"
-                        >
-                          <div className="font-medium">AI Tools</div>
-                          <div className="text-xs text-muted-foreground">Development tools and frameworks</div>
-                        </Link>
-                        {/* Add more products links as needed */}
-                      </div>
-                    </div>
-                  </div>
-                </HoverCardContent>
-              </HoverCard>
-              <Link
-                href="/pricing"
-                className={`text-sm font-semibold hover:text-primary`}
-              >
-                Pricing
-              </Link>
-              <Link
-                href="/store"
-                className={`text-sm font-semibold hover:text-primary`}
-              >
-                Store
-              </Link>
-              <Link
-                href="/developers"
-                className={`text-sm font-semibold hover:text-primary`}
-              >
-                Developers
-              </Link>
-              <Link
-                href="/resources"
-                className={`text-sm font-semibold hover:text-primary`}
-              >
-                Resources
-              </Link>
               <Link
                 href="/company"
-                className={`text-sm font-semibold hover:text-primary`}
+                className={`text-sm min-w-[75px] relative transition-colors duration-300 hover:font-bold after:content-[''] after:absolute after:h-[3px] after:rounded-full after:bg-foreground after:-bottom-[20px] after:left-0 after:transition-all after:duration-300 after:w-0 hover:after:w-full ${isActive('/company') ? 'font-bold after:w-full' : ''}`}
               >
                 Company
+              </Link>
+              <Link
+                href="/newsroom"
+                className={`text-sm min-w-[80px] relative transition-colors duration-300 hover:font-bold after:content-[''] after:absolute after:h-[3px] after:rounded-full after:bg-foreground after:-bottom-[20px] after:left-0 after:transition-all after:duration-300 after:w-0 hover:after:w-full ${isActive('/newsroom') ? 'font-bold after:w-full' : ''}`}
+              >
+                Newsroom
+              </Link>
+              <Link
+                href="/contacts"
+                className={`text-sm min-w-[65px] relative transition-colors duration-300 hover:font-bold after:content-[''] after:absolute after:h-[3px] after:rounded-full after:bg-foreground after:-bottom-[20px] after:left-0 after:transition-all after:duration-300 after:w-0 hover:after:w-full ${isActive('/contacts') ? 'font-bold after:w-full' : ''}`}
+              >
+                Contacts
               </Link>
             </span>
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center justify-between gap-4">
-              <HoverCard openDelay={200} closeDelay={300} open={isLangOpen} onOpenChange={setIsLangOpen}>
-                <HoverCardTrigger asChild>
-                  <button className="text-sm font-semibold hover:text-primary flex items-center">
-                    {languages[selectedLang].display}
-                    <ChevronDown isOpen={isLangOpen} />
-                  </button>
-                </HoverCardTrigger>
-                <HoverCardContent 
-                  className="w-20 h-16 bg-[#050505d9] rounded-br-[16px] rounded-bl-[16px] p-4" 
-                  align="center"
-                  sideOffset={15}
-                >
-                  <button
-                    onClick={() => {
-                      setSelectedLang(otherLang.code as 'eng' | 'arm');
-                      setIsLangOpen(false);
-                    }}
-                    className="w-full text-left p-2 hover:text-primary rounded-md text-sm font-semibold"
-                  >
-                    {otherLang.display}
-                  </button>
-                </HoverCardContent>
-              </HoverCard>
-              <Link
-                href="/login"
-                className={`text-sm font-semibold hover:text-primary whitespace-nowrap`}
-              >
-                Log in
-              </Link>
-              <GetStarted />
+            <div className="hidden md:block">
+              <ReservationDialog />
             </div>
             
             {/* Mobile Burger Menu Button */}
@@ -199,9 +78,9 @@ export default function Header() {
               className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
               aria-label="Toggle menu"
             >
-              <span className={`w-6 h-0.5 bg-main_color transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-              <span className={`w-6 h-0.5 bg-main_color transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
-              <span className={`w-6 h-0.5 bg-main_color transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+              <span className={`w-6 h-0.5 bg-foreground transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+              <span className={`w-6 h-0.5 bg-foreground transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+              <span className={`w-6 h-0.5 bg-foreground transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
             </button>
           </div>
         </nav>
