@@ -1,197 +1,24 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-
-  --popover: oklch(1 0 0);
-
-  --primary: oklch(0.205 0 0);
-
-  --secondary: oklch(0.97 0 0);
-
-  --muted: oklch(0.97 0 0);
-
-  --accent: oklch(0.97 0 0);
-
-  --destructive: oklch(0.577 0.245 27.325);
-
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-
-  --spacing: 0.25rem;
-
-  --radius: 0.625rem;
-
-  --card: oklch(1 0 0);
-
-  --card-foreground: oklch(0.145 0 0);
-
-  --popover-foreground: oklch(0.145 0 0);
-
-  --primary-foreground: oklch(0.985 0 0);
-
-  --secondary-foreground: oklch(0.205 0 0);
-
-  --muted-foreground: oklch(0.556 0 0);
-
-  --accent-foreground: oklch(0.205 0 0);
-
-  --ring: oklch(0.708 0 0);
-
-  --chart-1: oklch(0.646 0.222 41.116);
-
-  --chart-2: oklch(0.6 0.118 184.704);
-
-  --chart-3: oklch(0.398 0.07 227.392);
-
-  --chart-4: oklch(0.828 0.189 84.429);
-
-  --chart-5: oklch(0.769 0.188 70.08);
-
-  --sidebar: oklch(0.985 0 0);
-
-  --sidebar-foreground: oklch(0.145 0 0);
-
-  --sidebar-primary: oklch(0.205 0 0);
-
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-
-  --sidebar-accent: oklch(0.97 0 0);
-
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-
-  --sidebar-border: oklch(0.922 0 0);
-
-  --sidebar-ring: oklch(0.708 0 0);
-
-  --background: #1E1D21;
-
-  --foreground: #fff;
-}
-
-@layer base { 
-  img, video {
-    max-width: fit-content;
-  }
- }
-
-@layer utilities {
-  @keyframes slide {
-    0% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(-25%);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  .carousel-container:hover .carousel {
-    animation-play-state: paused;
-  }
-
-  /* Ensure smooth carousel animation */
-  .animate-\[slide_15s_linear_infinite\] {
-    will-change: transform;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-  }
-
-  .animate-fade-in {
-    animation: fade-in 0.8s ease-out;
-  }
-
-  .animate-fade-in-delay {
-    animation: fade-in 0.8s ease-out 0.2s both;
-  }
-
-  .animate-fade-in-delay-2 {
-    animation: fade-in 0.8s ease-out 0.4s both;
-  }
-}
-
-@layer components {
-  .hero-bg {
-    width: 100vw;
-    max-height: 100vh;
-    color: white;
-    overflow: hidden;
+@layer base {
+  :root {
+    --background: 0,0%,2%;
+    --background50: 0,0%,50%;
+    --foreground: 240, 7%, 95%;
+    --primary: 21, 90%, 48%;
   }
 }
 
 body {
-  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+
+  main {
+    background-image: url('public/dot_grid.png');
+    background-color: hsl(var(--foreground));
+  }
 }
-.place-desc-large {
-  display: none !important;
-}
 
-.dark {
 
-  --background: oklch(0.145 0 0);
-
-  --foreground: oklch(0.985 0 0);
-
-  --card: oklch(0.205 0 0);
-
-  --card-foreground: oklch(0.985 0 0);
-
-  --popover: oklch(0.205 0 0);
-
-  --popover-foreground: oklch(0.985 0 0);
-
-  --primary: oklch(0.922 0 0);
-
-  --primary-foreground: oklch(0.205 0 0);
-
-  --secondary: oklch(0.269 0 0);
-
-  --secondary-foreground: oklch(0.985 0 0);
-
-  --muted: oklch(0.269 0 0);
-
-  --muted-foreground: oklch(0.708 0 0);
-
-  --accent: oklch(0.269 0 0);
-
-  --accent-foreground: oklch(0.985 0 0);
-
-  --destructive: oklch(0.704 0.191 22.216);
-
-  --border: oklch(1 0 0 / 10%);
-
-  --input: oklch(1 0 0 / 15%);
-
-  --ring: oklch(0.556 0 0);
-
-  --chart-1: oklch(0.488 0.243 264.376);
-
-  --chart-2: oklch(0.696 0.17 162.48);
-
-  --chart-3: oklch(0.769 0.188 70.08);
-
-  --chart-4: oklch(0.627 0.265 303.9);
-
-  --chart-5: oklch(0.645 0.246 16.439);
-
-  --sidebar: oklch(0.205 0 0);
-
-  --sidebar-foreground: oklch(0.985 0 0);
-
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-
-  --sidebar-accent: oklch(0.269 0 0);
-
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-
-  --sidebar-border: oklch(1 0 0 / 10%);
-
-  --sidebar-ring: oklch(0.556 0 0);
-}

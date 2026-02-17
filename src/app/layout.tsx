@@ -1,14 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Poppins } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import CookieConsent from "lib/CookieConsent";
-import { Toaster } from "ui/sonner";
 import Header from "./header";
 import Footer from "./footer";
 
-const poppins = Poppins({
-  variable: '--font-poppins',
+const noto_sans = Noto_Sans({
+  variable: '--font-noto-sans',
   subsets: ["latin"],
   weight: ["400", "600", "800"]
 });
@@ -96,7 +94,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${poppins.variable} antialiased`}
+        className={`${noto_sans.variable} antialiased`}
       >
         {/* Google Tag Manager (noscript) */}
         <noscript>
@@ -108,12 +106,16 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
+        
+        <div className="flex flex-col min-h-screen mx-[96px] ">
+          <Header />
 
-        <Header />
-        {children}
-        <CookieConsent />
-        <Toaster />
-        <Footer />
+          <main className="grow mt-[65px] rounded-[32px]">
+            {children}
+          </main>
+
+          <Footer />
+        </div>
       </body>
     </html>
   );
