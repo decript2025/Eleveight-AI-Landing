@@ -7,7 +7,6 @@ export default {
   theme: {
   	container: {
   		center: true,
-  		padding: '2rem',
   		screens: {
   			'2xl': '1400px'
   		}
@@ -19,6 +18,11 @@ export default {
 			  letterSpacing: '0',
 			  fontWeight: '600',
 			}],
+			h5: ['14px', {
+				lineHeight: '20px',
+				letterSpacing: '0',
+				fontWeight: '600',
+			  }],
 		},
   		colors: {
   			border: 'hsl(var(--border))',

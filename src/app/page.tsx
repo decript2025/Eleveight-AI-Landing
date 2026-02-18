@@ -12,7 +12,7 @@ import { ViewPricing } from "./home/view-pricing";
 
 export default function Home() {
   return (
-    <div>
+    <div id="top">
       <Hero />
       <Partners />
 
