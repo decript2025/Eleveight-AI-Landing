@@ -18,7 +18,7 @@ body {
   color: hsl(var(--foreground));
 
   main {
-    background-image: url('public/dot_grid.png');
+    background-image: url('public/home/dot_grid.png');
     background-color: hsl(var(--foreground));
   }
 }

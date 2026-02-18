@@ -3,7 +3,7 @@ import { ViewPricing } from "./view-pricing";
 
 export function Hero() {
   return (
-    <div className="bg-[url(public/splash.jpg)] h-[376px] bg-[80%_50%] [background-size:142%] bg-no-repeat rounded-[32px]">
+    <div className="bg-[url(public/home/splash.jpg)] h-[376px] bg-[80%_50%] [background-size:142%] bg-no-repeat rounded-[32px]">
       <div className="flex flex-col justify-center items-center p-10 px-64 gap-4">
         <span className="text-foreground font-normal border border-[#17a245] rounded-[99px] w-fit py-2 px-4 bg-[#009933] text-[12px]">
           NVIDIA B300 clusters available in Armenia

@@ -51,7 +51,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
           {/* Logo and Social Section */}
           <div className="lg:col-span-1">
-            <h2 className="text-2xl font-bold mb-4">
+            <h2 className="text-h2 mb-4">
               Eleveight<sup className="text-sm">AI</sup>
             </h2>
             <div className="flex gap-3">

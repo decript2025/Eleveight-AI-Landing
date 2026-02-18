@@ -51,7 +51,7 @@ export function Deployment() {
       <div className="shadow-main rounded-3xl bg-background">
         {/* Header */}
         <div className="text-center px-8 pt-4 pb-5">
-          <h2 className="text-[32px] font-semibold text-primary mb-2">
+          <h2 className="text-primary text-h2 mb-2">
             Four ways to deploy with Eleveight
           </h2>
           <p className="text-foreground font-normal text-[20px]/[32px]">
@@ -73,7 +73,7 @@ export function Deployment() {
                   <span className={`${option.iconColor} text-2xl`}>
                     {option.icon}
                   </span>
-                  <span className="text-black font-bold">{option.title}</span>
+                  <span className="text-background font-bold">{option.title}</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -81,9 +81,9 @@ export function Deployment() {
                   {option.features.map((feature, featureIndex) => (
                     <li 
                       key={featureIndex} 
-                      className="text-black text-sm leading-relaxed flex gap-2"
+                      className="text-background text-sm/[20px] flex gap-2"
                     >
-                      <span className="text-black mt-1">•</span>
+                      <span className="text-background">•</span>
                       <span>{feature}</span>
                     </li>
                   ))}

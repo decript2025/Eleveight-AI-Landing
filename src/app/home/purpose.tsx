@@ -43,16 +43,16 @@ export function Purpose() {
   ];
 
   return (
-    <section className="my-[100px]">
+    <section className="my-6">
       {/* Header */}
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black">
+      <div className="text-center p-4">
+        <h2 className="text-h2 text-background">
           Predictable compute you can scale with confidence
         </h2>
       </div>
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="m-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {purposeCards.map((card, index) => (
           <Card 
             key={index}
@@ -74,17 +74,17 @@ export function Purpose() {
 
             <CardContent className="p-6">
               {/* Title */}
-              <h3 className="text-xl font-bold text-black mb-2">
+              <h3 className="text-xl font-bold text-background mb-2">
                 {card.title}
               </h3>
 
               {/* Tagline */}
-              <p className="text-green-600 font-semibold mb-3">
+              <p className="text-[#009933] font-semibold mb-3 text-[14px]/[20px]">
                 {card.tagline}
               </p>
 
               {/* Description */}
-              <p className="text-black text-sm mb-4 leading-relaxed">
+              <p className="text-background text-sm mb-4 leading-relaxed">
                 {card.description}
               </p>
 
@@ -93,9 +93,9 @@ export function Purpose() {
                 {card.features.map((feature, featureIndex) => (
                   <li 
                     key={featureIndex}
-                    className="text-black text-sm leading-relaxed flex gap-2"
+                    className="text-background text-sm/[20px] flex gap-2"
                   >
-                    <span className="text-black mt-1 flex-shrink-0">•</span>
+                    <span className="text-background flex-shrink-0">•</span>
                     <span>{feature}</span>
                   </li>
                 ))}

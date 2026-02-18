@@ -17,7 +17,7 @@ export default function Home() {
       <Partners />
 
       <div className="px-[56px] py-4">
-        <h2 className="text-background text-[32px] text-center font-semibold">Stop losing performance to infrastructure noise</h2>
+        <h2 className="text-background text-center text-h2">Stop losing performance to infrastructure noise</h2>
         <p className="text-background50 text-center font-normal">Breakthrough models fail on basics: power, cooling, network contention, noisy neighbors, oversubscription, and opaque metrics.
           Eleveight removes infrastructure friction and restores control.</p>
       </div>
@@ -25,7 +25,7 @@ export default function Home() {
       <Deployment />
       <Purpose />
 
-      <div className="flex justify-center gap-4">
+      <div className="flex justify-center gap-4 p-6">
         <GetStarted />
         <ViewPricing />
       </div>

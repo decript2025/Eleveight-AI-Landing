@@ -13,6 +13,13 @@ export default {
   		}
   	},
   	extend: {
+		fontSize: {
+			h2: ['32px', {
+			  lineHeight: '48px',
+			  letterSpacing: '0',
+			  fontWeight: '600',
+			}],
+		},
   		colors: {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
