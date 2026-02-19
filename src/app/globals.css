@@ -13,6 +13,12 @@
   }
 }
 
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -27,4 +33,8 @@ body {
   }
 }
 
-
+.dual-gradient:hover {
+  background: 
+    linear-gradient(#de5d10, #009933) padding-box, 
+    linear-gradient(to bottom, #b99682, #27673b) border-box;
+}
