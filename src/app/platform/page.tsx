@@ -1,4 +1,4 @@
-export function Platform() {
+export default function Platform() {
   return (
     <div>
       <h1>Platform</h1>

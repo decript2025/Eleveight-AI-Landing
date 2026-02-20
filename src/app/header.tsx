@@ -41,8 +41,8 @@ export default function Header() {
   const otherLang = selectedLang === 'eng' ? languages.arm : languages.eng;
 
   return (
-    <>mx-[64px] 2xl:mx-[96px] sm:mx-[32px]
-      <header className={`fixed top-0 z-10 bg-[#050505d9] text-foreground py-[14px] [width:inherit] left-[32px] right-[32px] 2xl:right-[96px] 2xl:left-[96px] sm:right-[64px] sm:left-[64px] `}>
+    <>
+      <header className={`fixed top-0 z-10 bg-background/90 text-foreground py-[14px] [width:inherit] left-[32px] right-[32px] 2xl:right-[96px] 2xl:left-[96px] sm:right-[64px] sm:left-[64px] `}>
         <nav className="flex justify-between items-center gap-[16px]">
           <Link href="/">
             <Image
@@ -63,29 +63,22 @@ export default function Header() {
                     Platform <ChevronDown isOpen={isPlatformOpen} />
                   </span>
                 </HoverCardTrigger>
-                <HoverCardContent className="w-80 bg-[#050505d9] rounded-br-[16px] rounded-bl-[16px]" align="start">
-                  <div className="space-y-3">
-                    <div>
-                      <h3 className="font-semibold text-base mb-3">Platform</h3>
-                      <div className="space-y-2">
-                        <Link 
-                          href="/platform/infrastructure" 
-                          className="block p-2 hover:bg-accent rounded-md transition-colors text-sm"
-                        >
-                          <div className="font-medium">Infrastructure</div>
-                          <div className="text-xs text-muted-foreground">GPU computing resources</div>
-                        </Link>
-                        <Link 
-                          href="/platform/ai-tools" 
-                          className="block p-2 hover:bg-accent rounded-md transition-colors text-sm"
-                        >
-                          <div className="font-medium">AI Tools</div>
-                          <div className="text-xs text-muted-foreground">Development tools and frameworks</div>
-                        </Link>
-                        {/* Add more platform links as needed */}
-                      </div>
-                    </div>
-                  </div>
+                <HoverCardContent className="w-64 bg-background/90 rounded-b-[16px] p-2 overflow-hidden" align="start" sideOffset={15}>
+                  {[
+                    { href: '/platform/overview', label: 'Platform Overview' },
+                    { href: '/platform/security', label: 'Security and Compliance' },
+                    { href: '/platform/regions', label: 'Regions and sustainability' },
+                    { href: '/platform/status', label: 'Service status' },
+                    { href: '/store', label: 'Eleveight store' },
+                  ].map((item, i, arr) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`block px-6 py-4 text-sm hover:text-primary transition-colors ${i < arr.length - 1 ? 'border-b border-foreground/80' : ''}`}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
                 </HoverCardContent>
               </HoverCard>
 
@@ -96,61 +89,47 @@ export default function Header() {
                     Products <ChevronDown isOpen={isProductsOpen} />
                   </span>
                 </HoverCardTrigger>
-                <HoverCardContent className="w-80 bg-[#050505d9] rounded-br-[16px] rounded-bl-[16px]" align="start">
-                  <div className="space-y-3">
-                    <div>
-                      <h3 className="font-semibold text-base mb-3">Products</h3>
-                      <div className="space-y-2">
-                        <Link 
-                          href="/platform/infrastructure" 
-                          className="block p-2 hover:bg-accent rounded-md transition-colors text-sm"
-                        >
-                          <div className="font-medium">Infrastructure</div>
-                          <div className="text-xs text-muted-foreground">GPU computing resources</div>
-                        </Link>
-                        <Link 
-                          href="/platform/ai-tools" 
-                          className="block p-2 hover:bg-accent rounded-md transition-colors text-sm"
-                        >
-                          <div className="font-medium">AI Tools</div>
-                          <div className="text-xs text-muted-foreground">Development tools and frameworks</div>
-                        </Link>
-                        {/* Add more products links as needed */}
-                      </div>
-                    </div>
+                <HoverCardContent className="w-[760px] bg-background/90 rounded-b-[16px] p-2 overflow-hidden" align="start" sideOffset={15}>
+                  <div className="grid grid-cols-4 divide-x divide-foreground/10">
+                    {[
+                      { href: '/products/pure-metal', label: 'Pure Metal', icon: '■', desc: 'Dedicated next-gen servers with no noisy neighbors' },
+                      { href: '/products/growth-fabric', label: 'Growth Fabric', icon: '◆', desc: 'AI Cloud for training and inference with clear instance classes' },
+                      { href: '/products/private-compute', label: 'Private Compute', icon: '●', desc: 'Physically isolated racks or dedicated machine halls' },
+                      { href: '/products/model-marketplace', label: 'Model Marketplace', icon: '▲', desc: 'Instant launch and evaluation inside our environment' },
+                    ].map((item) => (
+                      <>
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="flex flex-col gap-4 px-4 py-5 text-sm transition-colors group"
+                      >
+                        <span className="flex items-center gap-2 font-semibold text-foreground/90 hover:text-primary">
+                          <span className="text-sm">{item.icon}</span>
+                          <h5 className="text-sm whitespace-nowrap">{item.label}</h5>
+                        </span>
+                        <span className="text-sm text-foreground/80 cursor-default">{item.desc}</span>
+                      </Link>
+                      </>
+                    ))}
                   </div>
                 </HoverCardContent>
               </HoverCard>
-              <Link
-                href="/pricing"
-                className={`text-sm font-semibold hover:text-primary`}
-              >
-                Pricing
-              </Link>
-              <Link
-                href="/store"
-                className={`text-sm font-semibold hover:text-primary`}
-              >
-                Store
-              </Link>
-              <Link
-                href="/developers"
-                className={`text-sm font-semibold hover:text-primary`}
-              >
-                Developers
-              </Link>
-              <Link
-                href="/resources"
-                className={`text-sm font-semibold hover:text-primary`}
-              >
-                Resources
-              </Link>
-              <Link
-                href="/company"
-                className={`text-sm font-semibold hover:text-primary`}
-              >
-                Company
-              </Link>
+
+              {/* Simple nav links */}
+              {[
+                { href: '/pricing', label: 'Pricing' },
+                { href: '/developers', label: 'Developers' },
+                { href: '/resources', label: 'Resources' },
+                { href: '/company', label: 'Company' },
+              ].map((item) => 
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`text-sm font-semibold hover:text-primary ${isActive(item.href) ? 'text-primary' : ''}`}
+                >
+                  {item.label}
+                </Link>
+              )}
             </span>
           </div>
 
@@ -164,7 +143,7 @@ export default function Header() {
                   </button>
                 </HoverCardTrigger>
                 <HoverCardContent 
-                  className="w-20 h-16 bg-[#050505d9] rounded-br-[16px] rounded-bl-[16px] p-4" 
+                  className="w-20 h-16 bg-background/90 rounded-br-[16px] rounded-bl-[16px] p-4" 
                   align="center"
                   sideOffset={15}
                 >
@@ -205,12 +184,11 @@ export default function Header() {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen &&(
         <div 
-          className="fixed inset-0 bg-black/50 z-[999] xl:hidden"
+          className="fixed inset-0 bg-background/90 z-[999] xl:hidden"
           onClick={closeMobileMenu}
         />
       )}
 
-      {/* Mobile Menu Panel */}
       <div className={`fixed top-0 right-0 h-full w-72 bg-[#111111] z-[1001] transform transition-transform duration-300 ease-in-out xl:hidden overflow-y-auto ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         {/* Close Button */}
         <button
