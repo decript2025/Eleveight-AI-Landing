@@ -13,7 +13,7 @@ const buttonVariants = cva(
           "bg-[#EA580C] text-foreground shadow-[0_0_8px_0_#EA580C] hover:shadow-[0_0_16px_0_#EA580C] border border-[#F9731600] dual-gradient duration-0",
         outline:
           "bg-foreground shadow-[0_0_8px_0_#EA580C] text-[#EA580C] hover:shadow-[0_0_16px_0_#EA580C]",
-        link: "text-primary underline-offset-4 hover:underline",
+        link: "text-foreground hover:text-primary",
       },
       size: {
         default: "h-9 px-4",

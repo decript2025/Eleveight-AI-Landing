@@ -56,7 +56,7 @@ export function Purpose() {
         {purposeCards.map((card, index) => (
           <Card 
             key={index}
-            className="overflow-hidden bg-white shadow-lg hover:shadow-xl transition-shadow"
+            className={`overflow-hidden bg-white shadow-lg hover:shadow-xl transition-shadow ${index === 2 ? 'md:col-span-full lg:col-span-1' : ''}`}
           >
             {/* Image */}
             <div className="relative w-full h-48 bg-gray-200">

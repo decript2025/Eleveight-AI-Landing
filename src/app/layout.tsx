@@ -40,7 +40,6 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#000',
   width: 'device-width',
   initialScale: 1.0,
 };
@@ -107,7 +106,7 @@ export default function RootLayout({
         </noscript>
         {/* End Google Tag Manager (noscript) */}
         
-        <div className="flex flex-col min-h-screen mx-[96px] ">
+        <div className="flex flex-col min-h-screen mx-[32px] 2xl:mx-[96px] sm:mx-[64px]">
           <Header />
 
           <main className="grow mt-[65px] rounded-[32px]">

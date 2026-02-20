@@ -74,7 +74,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className=" grid grid-cols-4 gap-8">
+        <div className=" grid grid-cols-4 md:grid-cols-2 gap-8">
               {/* Footer Sections */}
               {footerSections.map((section, index) => (
                 <div key={index} className="lg:col-span-1">

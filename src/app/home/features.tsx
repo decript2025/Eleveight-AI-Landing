@@ -47,7 +47,7 @@ export function Features() {
         {features.map((feature, index) => (
           <Card
             key={index}
-            className={`bg-background`}
+            className={`bg-background ${index === 2 || index === 5 ? 'md:col-span-full lg:col-span-1' : ''}`}
           >
             <CardContent className="p-6 pt-4">
               {/* Icon */}

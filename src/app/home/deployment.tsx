@@ -62,11 +62,11 @@ export function Deployment() {
         <div className="p-2 [box-shadow:0_-10px_18px_-3px_#EA580C]"> </div>
 
         {/* Deployment Options Grid */}
-        <div className="grid grid-cols-1 px-8 pt-4 pb-6 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 px-8 pt-4 pb-6 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {deploymentOptions.map((option, index) => (
             <Card 
               key={index} 
-              className="bg-gray-200 border-none shadow-lg hover:shadow-xl transition-shadow"
+              className={`bg-gray-200 border-none shadow-lg hover:shadow-xl transition-shadow ${index === 3 ? 'md:col-span-full lg:col-span-1' : ''}`}
             >
               <CardHeader>
                 <CardTitle className="flex items-center gap-3 text-xl">
