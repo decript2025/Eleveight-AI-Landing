@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import { Button } from "ui/button";
+import { Button } from "ui/components/ui/button";
 
 const STORAGE_KEY = "cookie-consent";
 
@@ -55,7 +55,7 @@ export default function CookieConsent() {
         </div>
 
         <div className="flex shrink-0 items-center gap-3">
-          <Button variant="default-white" size="sm" onClick={() => saveChoice()}>Accept</Button>
+          <Button variant="default" size="sm" onClick={() => saveChoice()}>Accept</Button>
         </div>
       </div>
     </div>

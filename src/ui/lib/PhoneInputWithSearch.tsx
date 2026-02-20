@@ -3,23 +3,23 @@ import { CheckIcon, ChevronsUpDown } from "lucide-react";
 import * as RPNInput from "react-phone-number-input";
 import flags from "react-phone-number-input/flags";
 
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "ui/command";
-import { Input } from "ui/input";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "ui/popover";
-import { ScrollArea } from "ui/scroll-area";
-import { cn } from "lib/utils";
-import { Button } from "ui/button";
+// import {
+//   Command,
+//   CommandEmpty,
+//   CommandGroup,
+//   CommandInput,
+//   CommandItem,
+//   CommandList,
+// } from "ui/command";
+// import { Input } from "ui/input";
+// import {
+//   Popover,
+//   PopoverContent,
+//   PopoverTrigger,
+// } from "ui/popover";
+// import { ScrollArea } from "ui/scroll-area";
+import { cn } from "ui/lib/utils";
+import { Button } from "ui/components/ui/button";
 
 type PhoneInputProps = Omit<
   React.ComponentProps<"input">,
@@ -62,11 +62,12 @@ const InputComponent = React.forwardRef<
   HTMLInputElement,
   React.ComponentProps<"input">
 >(({ className, ...props }, ref) => (
-  <Input
-    className={cn("rounded-e-lg rounded-s-none", className)}
-    {...props}
-    ref={ref}
-  />
+  // <Input
+  //   className={cn("rounded-e-lg rounded-s-none", className)}
+  //   {...props}
+  //   ref={ref}
+  // />
+  <div></div>
 ));
 InputComponent.displayName = "InputComponent";
 
@@ -91,73 +92,74 @@ const CountrySelect = ({
   const displayCountry = selectedCountry || (countryList.find((e) => e.value)?.value as RPNInput.Country) || ("US" as RPNInput.Country);
 
   return (
-    <Popover
-      open={isOpen}
-      modal
-      onOpenChange={(open) => {
-        setIsOpen(open);
-        if (open) {
-          setSearchValue("");
-        }
-      }}
-    >
-      <PopoverTrigger asChild>
-        <Button
-          size="flag"
-          type="button"
-          className="flex gap-1 rounded-e-none rounded-s-lg border-r-0 px-3 focus:z-10"
-          disabled={disabled}
-        >
-          <FlagComponent country={displayCountry} countryName={displayCountry} />
-          <ChevronsUpDown
-            className={cn(
-              "-mr-2 size-4 opacity-50",
-              disabled ? "hidden" : "opacity-100",
-            )}
-          />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent align="start" sideOffset={4} className="w-[300px] p-0 bg-background">
-        <Command>
-          <CommandInput
-            value={searchValue}
-            onValueChange={(value) => {
-              setSearchValue(value);
-              setTimeout(() => {
-                if (scrollAreaRef.current) {
-                  const viewportElement = scrollAreaRef.current.querySelector(
-                    "[data-radix-scroll-area-viewport]",
-                  );
-                  if (viewportElement) {
-                    viewportElement.scrollTop = 0;
-                  }
-                }
-              }, 0);
-            }}
-            placeholder="Search country..."
-          />
-          <CommandList>
-            <ScrollArea ref={scrollAreaRef} className="h-72">
-              <CommandEmpty>No country found.</CommandEmpty>
-              <CommandGroup>
-                {countryList.map(({ value, label }) =>
-                  value ? (
-                    <CountrySelectOption
-                      key={value}
-                      country={value}
-                      countryName={label}
-                      selectedCountry={selectedCountry}
-                      onChange={onChange}
-                      onSelectComplete={() => setIsOpen(false)}
-                    />
-                  ) : null,
-                )}
-              </CommandGroup>
-            </ScrollArea>
-          </CommandList>
-        </Command>
-      </PopoverContent>
-    </Popover>
+    // <Popover
+    //   open={isOpen}
+    //   modal
+    //   onOpenChange={(open) => {
+    //     setIsOpen(open);
+    //     if (open) {
+    //       setSearchValue("");
+    //     }
+    //   }}
+    // >
+    //   <PopoverTrigger asChild>
+    //     <Button
+    //       size="flag"
+    //       type="button"
+    //       className="flex gap-1 rounded-e-none rounded-s-lg border-r-0 px-3 focus:z-10"
+    //       disabled={disabled}
+    //     >
+    //       <FlagComponent country={displayCountry} countryName={displayCountry} />
+    //       <ChevronsUpDown
+    //         className={cn(
+    //           "-mr-2 size-4 opacity-50",
+    //           disabled ? "hidden" : "opacity-100",
+    //         )}
+    //       />
+    //     </Button>
+    //   </PopoverTrigger>
+    //   <PopoverContent align="start" sideOffset={4} className="w-[300px] p-0 bg-background">
+    //     <Command>
+    //       <CommandInput
+    //         value={searchValue}
+    //         onValueChange={(value) => {
+    //           setSearchValue(value);
+    //           setTimeout(() => {
+    //             if (scrollAreaRef.current) {
+    //               const viewportElement = scrollAreaRef.current.querySelector(
+    //                 "[data-radix-scroll-area-viewport]",
+    //               );
+    //               if (viewportElement) {
+    //                 viewportElement.scrollTop = 0;
+    //               }
+    //             }
+    //           }, 0);
+    //         }}
+    //         placeholder="Search country..."
+    //       />
+    //       <CommandList>
+    //         <ScrollArea ref={scrollAreaRef} className="h-72">
+    //           <CommandEmpty>No country found.</CommandEmpty>
+    //           <CommandGroup>
+    //             {countryList.map(({ value, label }) =>
+    //               value ? (
+    //                 <CountrySelectOption
+    //                   key={value}
+    //                   country={value}
+    //                   countryName={label}
+    //                   selectedCountry={selectedCountry}
+    //                   onChange={onChange}
+    //                   onSelectComplete={() => setIsOpen(false)}
+    //                 />
+    //               ) : null,
+    //             )}
+    //           </CommandGroup>
+    //         </ScrollArea>
+    //       </CommandList>
+    //     </Command>
+    //   </PopoverContent>
+    // </Popover>
+    <div></div>
   );
 };
 
@@ -178,17 +180,17 @@ const CountrySelectOption = ({
     onChange(country);
     onSelectComplete();
   };
-
-  return (
-    <CommandItem className="gap-2" onSelect={handleSelect}>
-      <FlagComponent country={country} countryName={countryName} />
-      <span className="flex-1 text-sm text-foreground">{countryName}</span>
-      <span className="text-sm text-foreground">{`+${RPNInput.getCountryCallingCode(country)}`}</span>
-      <CheckIcon
-        className={`ml-auto size-4 ${country === selectedCountry ? "opacity-100" : "opacity-0"}`}
-      />
-    </CommandItem>
-  );
+  return <div></div>
+  // return (
+  //   <CommandItem className="gap-2" onSelect={handleSelect}>
+  //     <FlagComponent country={country} countryName={countryName} />
+  //     <span className="flex-1 text-sm text-foreground">{countryName}</span>
+  //     <span className="text-sm text-foreground">{`+${RPNInput.getCountryCallingCode(country)}`}</span>
+  //     <CheckIcon
+  //       className={`ml-auto size-4 ${country === selectedCountry ? "opacity-100" : "opacity-0"}`}
+  //     />
+  //   </CommandItem>
+  // );
 };
 
 const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
