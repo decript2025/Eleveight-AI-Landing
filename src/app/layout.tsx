@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Noto_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import Header from "./header";
-import Footer from "./footer";
+import Header from "./components/header";
+import Footer from "./components/footer";
 
 const noto_sans = Noto_Sans({
   variable: '--font-noto-sans',

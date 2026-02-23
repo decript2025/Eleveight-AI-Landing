@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from 'ui/components/ui/hover-card';
 import { Button } from 'ui/components/ui/button';
 import { ChevronDown } from 'ui/lib/chevronDown';
-import { GetStarted } from './home/get-started';
+import { GetStarted } from '../home/get-started';
 export default function Header() {
   const pathname = usePathname() || '';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -42,7 +42,7 @@ export default function Header() {
 
   return (
     <>
-      <header className={`fixed top-0 z-10 bg-background/90 text-foreground py-[14px] [width:inherit] left-[32px] right-[32px] 2xl:right-[96px] 2xl:left-[96px] sm:right-[64px] sm:left-[64px] `}>
+      <header className={`fixed top-0 right-0 z-10 bg-background/90 text-foreground py-[14px] w-full px-8 2xl:px-[96px] sm:px-16`}>
         <nav className="flex justify-between items-center gap-[16px]">
           <Link href="/">
             <Image
@@ -184,12 +184,12 @@ export default function Header() {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen &&(
         <div 
-          className="fixed inset-0 bg-background/90 z-[999] xl:hidden"
+          className="fixed inset-0 bg-background/50 z-[999] xl:hidden"
           onClick={closeMobileMenu}
         />
       )}
 
-      <div className={`fixed top-0 right-0 h-full w-72 bg-[#111111] z-[1001] transform transition-transform duration-300 ease-in-out xl:hidden overflow-y-auto ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div className={`fixed top-0 right-0 h-full w-72 z-[1001] transform transition-transform duration-300 ease-in-out xl:hidden overflow-y-auto ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         {/* Close Button */}
         <button
           onClick={closeMobileMenu}
@@ -209,7 +209,7 @@ export default function Header() {
           </svg>
         </button>
 
-        <div className="flex flex-col text-foreground pt-20 pb-8">
+        <div className="flex flex-col text-foreground bg-background/90 pt-20 pb-8">
           {/* Platform accordion */}
           <div>
             <button
@@ -306,7 +306,7 @@ export default function Header() {
                   key={lang}
                   disabled={selectedLang === lang}
                   onClick={() => setSelectedLang(lang)}
-                  className={` ${ selectedLang === lang && 'text-foreground/30 cursor-default' }`}
+                  className={` ${ selectedLang === lang && 'text-foreground/90 cursor-default' }`}
                 >
                   {languages[lang].display}
                 </Button>
