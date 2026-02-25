@@ -6,7 +6,7 @@ export default {
   prefix: "",
   theme: {
 	screens: {
-		'sm': '500px',
+	  'sm': '420px',
 	  'md': '768px',
 	  'lg': '1024px',
 	  'xl': '1280px',
@@ -17,8 +17,8 @@ export default {
   	},
   	extend: {
 		fontSize: {
-			h1: ['clamp(32px, 3vw, 48px)', {
-				lineHeight: 'clamp(32px, 3vw, 48px)',
+			h1: ['clamp(42px, 5vw, 48px)', {
+				lineHeight: 'clamp(42px, 5vw, 64px)',
 				letterSpacing: '0',
 				fontWeight: '600',
 			}],

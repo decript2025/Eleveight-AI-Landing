@@ -62,7 +62,7 @@ export function Deployment() {
         <div className="p-2 [box-shadow:0_-10px_18px_-3px_#EA580C]"> </div>
 
         {/* Deployment Options Grid */}
-        <div className="grid grid-cols-1 px-4 sm:px-8 pt-4 pb-6 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:px-4 sm:px-8 pt-4 pb-6 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {deploymentOptions.map((option, index) => (
             <Card 
               key={index} 
